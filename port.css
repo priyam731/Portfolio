@@ -317,24 +317,41 @@ social-links a:hover img {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
-  max-width: 1000px;
+  grid-template-columns: repeat(4, 1fr); /* Changed to exactly 4 columns */
+  gap: 20px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
   margin: 0 auto;
+  max-width: 1400px; /* Increased max-width to accommodate 4 columns */
 }
 
 .gallery-grid img {
   width: 100%;
-  height: 100%;
-  border-radius: 12px;
+  aspect-ratio: 1; /* Makes images square */
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.gallery-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+/* Add responsive design for smaller screens */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Custom Cursor */
