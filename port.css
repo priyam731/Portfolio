@@ -152,6 +152,37 @@ section h2 {
   margin-top: 0.5rem;
 }
 
+/* Project container for image and text side by side */
+.project-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.project-image-container {
+  flex-shrink: 0;
+  width: 6.25%; /* 1/16 of the original container width (25% ÷ 4) */
+  min-width: 1cm; /* Adding a fixed minimum width of 1cm */
+}
+
+.certification-image-container {
+  flex-shrink: 0;
+  width: 18.75%; /* 3x larger than project images */
+  min-width: 3cm; /* 3x larger than project images */
+}
+
+.project-content {
+  flex-grow: 1;
+}
+
+.project-image-small {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
 .project-image {
   width: 100%;
   max-height: 300px;
@@ -503,6 +534,23 @@ body::before {
   /* Cards */
   .card {
     padding: 1rem;
+  }
+
+  /* Project container responsive */
+  .project-container {
+    flex-direction: column;
+  }
+
+  .project-image-container {
+    width: 12.5%; /* 1/8 of the original size on mobile */
+    min-width: 1cm; /* Original minimum width */
+    margin-bottom: 15px;
+  }
+
+  .certification-image-container {
+    width: 37.5%; /* 3x larger than project images on mobile */
+    min-width: 3cm; /* 3x larger than project images */
+    margin-bottom: 15px;
   }
 
   /* Tech Stack */
