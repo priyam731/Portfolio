@@ -19,6 +19,7 @@ html {
   --header-bg: #fff;
   --hero-gradient: linear-gradient(to right, #ffe3ec, #fceabb);
   --shadow-color: rgba(0, 0, 0, 0.05);
+  --animation-duration: 0.6s;
 }
 
 [data-theme="dark"] {
@@ -620,4 +621,44 @@ body::before {
     width: 100px;
     height: 100px;
   }
+}
+
+/* Animation Classes */
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--animation-duration) ease-out,
+    transform var(--animation-duration) ease-out;
+}
+
+.animate-slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add initial invisible state for text elements that will be animated */
+h1,
+h2,
+h3,
+p {
+  will-change: transform, opacity; /* Optimize animations */
+}
+
+/* Add subtle scaling to images on hover */
+.project-image-small:hover,
+.gallery-grid img:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+/* Enhanced hover effects for cards */
+.card {
+  transform-origin: center bottom;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 8px 24px var(--shadow-color);
 }
