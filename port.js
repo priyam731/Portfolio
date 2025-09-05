@@ -67,30 +67,100 @@ ScrollReveal().reveal("p", {
 // Set current year in footer
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Enhanced animations for hero section
-const heroSection = document.querySelector(".hero");
-if (heroSection) {
-  const heroImg = heroSection.querySelector("img");
-  const heroHeading = heroSection.querySelector("h1");
-  const heroText = heroSection.querySelector("p");
+// When the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // Get or create cursor elements
+  let cursorDot = document.querySelector(".cursor-dot");
+  let cursorRing = document.querySelector(".cursor-ring");
 
-  // Create a timeline for hero animations
-  const heroTl = gsap.timeline({ delay: 0.2 });
+  // Check if cursor elements exist in the DOM, create them if they don't
+  if (!cursorDot) {
+    cursorDot = document.createElement("div");
+    cursorDot.classList.add("cursor-dot");
+    document.body.appendChild(cursorDot);
+  }
 
-  // Add elements to the timeline with staggered animations
-  heroTl
-    .from(heroImg, { scale: 0.8, opacity: 0, duration: 1, ease: "power2.out" })
-    .from(
-      heroHeading,
-      { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.4"
-    )
-    .from(
-      heroText,
-      { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.4"
-    );
-}
+  if (!cursorRing) {
+    cursorRing = document.createElement("div");
+    cursorRing.classList.add("cursor-ring");
+    document.body.appendChild(cursorRing);
+  }
+
+  // Make sure cursor is initially hidden until mouse moves
+  cursorDot.style.opacity = "0";
+  cursorRing.style.opacity = "0";
+
+  window.addEventListener("mousemove", (e) => {
+    // Show cursor when mouse moves
+    cursorDot.style.opacity = "1";
+    cursorRing.style.opacity = "1";
+
+    gsap.to(cursorDot, {
+      x: e.clientX - 3,
+      y: e.clientY - 3,
+      duration: 0.15,
+      ease: "power3.out",
+    });
+
+    gsap.to(cursorRing, {
+      x: e.clientX - 18,
+      y: e.clientY - 18,
+      duration: 0.25,
+      ease: "power3.out",
+    });
+  });
+
+  // Add mouse leave event to hide cursor when mouse leaves the window
+  document.addEventListener("mouseleave", () => {
+    cursorDot.style.opacity = "0";
+    cursorRing.style.opacity = "0";
+  });
+
+  // Add mouse enter event to show cursor when mouse enters the window
+  document.addEventListener("mouseenter", () => {
+    cursorDot.style.opacity = "1";
+    cursorRing.style.opacity = "1";
+  });
+
+  document.querySelectorAll("a, button, .hoverable").forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      gsap.to(cursorRing, { scale: 1.5, borderColor: "#ff00ff" });
+    });
+    el.addEventListener("mouseleave", () => {
+      gsap.to(cursorRing, { scale: 1, borderColor: "#00f0ff" });
+    });
+  });
+
+  // Enhanced animations for hero section
+  const heroSection = document.querySelector(".hero");
+  if (heroSection) {
+    const heroImg = heroSection.querySelector("img");
+    const heroHeading = heroSection.querySelector("h1");
+    const heroText = heroSection.querySelector("p");
+
+    // Create a timeline for hero animations
+    const heroTl = gsap.timeline({ delay: 0.2 });
+
+    // Add elements to the timeline with staggered animations
+    heroTl
+      .from(heroImg, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+      })
+      .from(
+        heroHeading,
+        { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" },
+        "-=0.4"
+      )
+      .from(
+        heroText,
+        { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" },
+        "-=0.4"
+      );
+  }
+});
 
 // Enhanced animations for project cards
 gsap.utils.toArray(".card").forEach((card) => {
@@ -133,10 +203,32 @@ gsap.utils.toArray(".card").forEach((card) => {
   }
 });
 
-const cursorDot = document.querySelector(".cursor-dot");
-const cursorRing = document.querySelector(".cursor-ring");
+// Get or create cursor elements
+let cursorDot = document.querySelector(".cursor-dot");
+let cursorRing = document.querySelector(".cursor-ring");
+
+// Check if cursor elements exist in the DOM, create them if they don't
+if (!cursorDot) {
+  cursorDot = document.createElement("div");
+  cursorDot.classList.add("cursor-dot");
+  document.body.appendChild(cursorDot);
+}
+
+if (!cursorRing) {
+  cursorRing = document.createElement("div");
+  cursorRing.classList.add("cursor-ring");
+  document.body.appendChild(cursorRing);
+}
+
+// Make sure cursor is initially hidden until mouse moves
+cursorDot.style.opacity = "0";
+cursorRing.style.opacity = "0";
 
 window.addEventListener("mousemove", (e) => {
+  // Show cursor when mouse moves
+  cursorDot.style.opacity = "1";
+  cursorRing.style.opacity = "1";
+
   gsap.to(cursorDot, {
     x: e.clientX - 3,
     y: e.clientY - 3,

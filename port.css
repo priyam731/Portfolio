@@ -399,6 +399,7 @@ social-links a:hover img {
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
+  transform: translate(0, 0);
 }
 
 .cursor-dot {
