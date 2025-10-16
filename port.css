@@ -60,6 +60,7 @@ header {
 .contact,
 .socials {
   font-family: "Caveat", cursive;
+  color: var(--text-primary);
 }
 
 /* Navigation */
@@ -214,7 +215,7 @@ footer {
 #socials h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #111;
+  color: var(--text-primary);
 }
 
 .social-links {
