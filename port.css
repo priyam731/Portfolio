@@ -658,6 +658,12 @@ p {
   transition: transform 0.3s ease;
 }
 
+/* Zoom effect for GFF image */
+.gff-image-zoom {
+  transform: scale(1.5) translateY(15px);
+  transform-origin: center center;
+}
+
 /* Enhanced hover effects for cards */
 .card {
   transform-origin: center bottom;
