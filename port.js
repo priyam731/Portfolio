@@ -152,12 +152,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .from(
         heroHeading,
         { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.4"
+        "-=0.4",
       )
       .from(
         heroText,
         { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.4"
+        "-=0.4",
       );
   }
 });
@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Animation setup with Intersection Observer
   // Add animate-slide-up class to all elements we want to animate (excluding hero section)
   const animatedElements = document.querySelectorAll(
-    "section:not(.hero) h1, section:not(.hero) h2, section:not(.hero) h3, section:not(.hero) p, .card, .tech-item, .gallery-grid img"
+    "section:not(.hero) h1, section:not(.hero) h2, section:not(.hero) h3, section:not(.hero) p, .card, .tech-item, .gallery-grid img",
   );
   animatedElements.forEach((element) => {
     element.classList.add("animate-slide-up");
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       threshold: 0.1, // Trigger when 10% of the element is visible
       rootMargin: "0px 0px -50px 0px", // Negative margin means it triggers slightly before the element comes into view
-    }
+    },
   );
 
   // Observe all elements with the animate-slide-up class
