@@ -28,10 +28,10 @@ ScrollReveal().reveal("#contact h2", {
   ...slideUp,
   delay: 100,
 });
-ScrollReveal().reveal(".contact-form", {
-  ...slideUp,
-  delay: 200,
-});
+// ScrollReveal().reveal(".contact-form", {
+//   ...slideUp,
+//   delay: 200,
+// });
 
 // Tech stack section
 ScrollReveal().reveal("#techstack h2", {

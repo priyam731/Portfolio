@@ -257,14 +257,14 @@ social-links a:hover img {
   color: #111;
 }
 
-.contact-form {
+/* .contact-form {
   max-width: 600px;
   margin: auto;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-}
-
+} */
+/* 
 .contact-form input,
 .contact-form textarea {
   padding: 1rem;
@@ -304,7 +304,7 @@ social-links a:hover img {
 .contact-form button:hover {
   background: #d81b60;
   transform: translateY(-2px);
-}
+} */
 
 /* Tech Stack */
 #techstack {
